@@ -1,4 +1,4 @@
-FROM ruby:2.5.3
+FROM ruby:2.6.2
 
 RUN apt-get update -qy && apt-get install -y apt-transport-https
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
