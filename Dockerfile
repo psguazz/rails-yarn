@@ -12,8 +12,11 @@ RUN apt-get update -qy && apt-get install -y \
     yarn
 
 # Download and install wkhtmltopdf and its dependencies
-RUN apt-get install -y build-essential xorg libssl-dev libxrender-dev
-RUN apt-get install -y wkhtmltopdf
+RUN apt-get install -y --force-yes xvfb
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+RUN tar xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+RUN mv wkhtmltox/bin/wkhtmltopdf /usr/bin
+RUN rm wkhtmltox-0.12.4_linux-generic-amd64.tar.xz  && rm -rf wkhtmltox
 
 # Deployment!
 RUN gem install dpl
