@@ -20,6 +20,5 @@ RUN rm wkhtmltox-0.12.4_linux-generic-amd64.tar.xz  && rm -rf wkhtmltox
 
 # Deployment!
 RUN gem install dpl
-RUN gem install bundler -v 2.0.1
 
 CMD ["irb"]
